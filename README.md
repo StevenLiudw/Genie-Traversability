@@ -1,8 +1,4 @@
-Thanks! Here's an updated `README.md` that mentions the `environment.yaml` provided in the root directory:
 
----
-
-````markdown
 # SAM2 Heatmap Visualization
 
 This repository provides a script to run **SAM2 model inference** on an input image and visualize the resulting ground mask heatmap. The main entry point of the project is `visualize_heatmap.py`.
