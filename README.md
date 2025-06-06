@@ -29,6 +29,9 @@ The script uses the following paths:
   `sam2/configs/sam2.1_inference_tiny/sam2.1_custom2.yaml`
 * Checkpoint:
   `sam2_logs/configs/sam2.1_training_tiny/sam2_training_custom2_freezeNoneNone_f57.yaml/checkpoints/checkpoint_2.pt`
+  
+🔔 Note: The checkpoint file is not included in the repository.
+To use the model, please download the checkpoint manually from the link below and place it in the expected directory.
 
 ### 📥 Download Checkpoint
 
