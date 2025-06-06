@@ -12,11 +12,11 @@ This repository provides a script to run **SAM2 model inference** on an input im
 An `environment.yaml` file is included in the root directory. Use it to create the environment:
 
 ```bash
-conda env create -f environment.yaml
+conda env create -f environment.yml
 conda activate <env_name>
 ````
 
-Replace `<env_name>` with the environment name specified inside the YAML file.
+Replace `<env_name>` with the environment name specified inside the YML file.
 
 ---
 
