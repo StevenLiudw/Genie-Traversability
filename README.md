@@ -11,29 +11,33 @@ This repository provides inference and visualization code for **SAM-TP**, a cust
 
 **Paper link**: [https://arxiv.org/abs/2506.17960](https://arxiv.org/abs/2506.17960)
 
+Got it! Here's the updated **Setup** section without the `conda create` and `conda activate` part — focusing purely on the `pip install -e .` method:
+
+---
+
 ## 🔧 Setup
 
-### 1. Create and activate the Conda environment
+### 1. Install dependencies and the package
 
-An `environment.yml` file is included in the root directory. It contains all necessary dependencies **except PyTorch**, so you can install a PyTorch version that matches your system’s CUDA and GPU setup.
-
-First, create the environment:
+Run the following command in the root directory to install all required dependencies and the package in editable mode:
 
 ```bash
-conda env create -f genie-traversability.yml
-conda activate genie-traversability
+pip install -e .
 ```
 
-Then, manually install PyTorch. For example, for the **nightly build with CUDA 12.8**, run:
+### 2. Install PyTorch manually
+
+PyTorch is excluded so you can install the version that matches your system’s CUDA/GPU setup.
+
+For example, for the **nightly build with CUDA 12.8**, run:
 
 ```bash
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 ```
 
-> 💡 Visit [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) to find the correct install command for your system.
+> 🔗 Visit [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) to find the correct install command for your setup.
 
 ---
-
 
 ## 📦 Model Configuration and Checkpoint
 
