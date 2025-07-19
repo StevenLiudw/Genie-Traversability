@@ -7,18 +7,29 @@ This repository provides a script to run **SAM2 model inference** on an input im
 
 ## 🔧 Setup
 
+
+
 ### 1. Create and activate the Conda environment
 
-An `environment.yaml` file is included in the root directory. Use it to create the environment:
+An `environment.yml` file is included in the root directory. It contains all necessary dependencies **except PyTorch**, so you can install a PyTorch version that matches your system’s CUDA and GPU setup.
+
+First, create the environment:
 
 ```bash
-conda env create -f environment.yml
-conda activate <env_name>
-````
+conda env create -f genie-traversability.yml
+conda activate genie-traversability
+```
 
-Replace `<env_name>` with the environment name specified inside the YML file.
+Then, manually install PyTorch. For example, for the **nightly build with CUDA 12.8**, run:
+
+```bash
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+```
+
+> 💡 Visit [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) to find the correct install command for your system.
 
 ---
+
 
 
 ## 📦 Model Configuration and Checkpoint
