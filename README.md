@@ -7,11 +7,7 @@ This repository provides inference and visualization code for **SAM-TP**, a cust
 
 **GeNIE: A Generalizable Navigation System for In-the-Wild Environments**
 
-[Jiaming Wang*](), [Diwen Liu*](), [Jizhuo Chen*](), [Jiaxuan Da](), [Nuowen Qian](), [Tram Minh Man](), [Harold Soh](https://haroldsoh.com/)
-
-**Paper link**: [https://arxiv.org/abs/2506.17960](https://arxiv.org/abs/2506.17960)
-
-Got it! Here's the updated **Setup** section without the `conda create` and `conda activate` part — focusing purely on the `pip install -e .` method:
+Jiaming Wang*, Diwen Liu*, Jizhuo Chen*, Jiaxuan Da, Nuowen Qian, Tram Minh Man, [Harold Soh](https://haroldsoh.com/)
 
 ---
 
@@ -75,9 +71,6 @@ python visualize_heatmap.py \
 
 * `--input_path`: Path to the input image (JPG or PNG)
 * `--output_dir`: Directory where the output heatmap and score map will be saved
-
----
-Great! You can include the two images side by side (or stacked, depending on your preference) in the `README.md` using standard Markdown image syntax. Assuming they’re located at `example/0001.jpeg` and `example/heatmap.jpg` in your repo, here’s how you can do it:
 
 ---
 
