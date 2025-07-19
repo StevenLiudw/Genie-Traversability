@@ -13,18 +13,17 @@ Jiaming Wang*, Diwen Liu*, Jizhuo Chen*, Jiaxuan Da, Nuowen Qian, Tram Minh Man,
 
 ## 🔧 Setup
 
-### 1. Install dependencies and the package
-
-Run the following command in the root directory to install all required dependencies and the package in editable mode:
+### 1. Create a virtual environment or activate an existing one
 
 ```bash
-pip install -e .
+# create a new one
+conda env create -n sam_tp python=3.10
+# or activate the existing one
+conda activate sam_tp
 ```
 
-### 2. Install PyTorch manually
-
-PyTorch is excluded so you can install the version that matches your system’s CUDA/GPU setup.
-
+### 2. Make sure PyTorch is installed.
+If it's not installed in the virtual environment, you should install it according to your cuda version.
 For example, for the **nightly build with CUDA 12.8**, run:
 
 ```bash
@@ -32,6 +31,14 @@ pip install --pre torch torchvision torchaudio --index-url https://download.pyto
 ```
 
 > 🔗 Visit [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) to find the correct install command for your setup.
+
+### 3. Install the SAM-TP package
+
+```bash
+pip install git+https://github.com/StevenLiudw/SAM-TP-GENIE
+
+# or git clone the code and install it with edit mode using pip install -e .
+```
 
 ---
 
@@ -62,6 +69,15 @@ sam2_logs/configs/sam2.1_training_tiny/sam2_training_custom2_freezeNoneNone_f57.
 ---
 
 ### ✅ Usage
+
+#### To use it in your code
+```python
+from sam_tp.
+
+inference..
+
+```
+
 
 ```bash
 python visualize_heatmap.py \
