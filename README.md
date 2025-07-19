@@ -37,7 +37,8 @@ pip install --pre torch torchvision torchaudio --index-url https://download.pyto
 ```bash
 pip install git+https://github.com/StevenLiudw/SAM-TP-GENIE
 
-# or git clone the code and install it with edit mode using pip install -e .
+# or git clone the code and install it with editable mode
+pip install -e.
 ```
 
 ---
@@ -72,12 +73,21 @@ sam2_logs/configs/sam2.1_training_tiny/sam2_training_custom2_freezeNoneNone_f57.
 
 #### To use it in your code
 ```python
-from sam_tp.
+from sam2.sam_tp import SAM_TP
 
-inference..
+model_cfg = "path/to/config.yaml"
+checkpoint = "path/to/checkpoint.pt"
 
+sam_tp = SAM_TP(model_cfg, checkpoint)
+image = ...  # your (H, W, 3) RGB image as a NumPy array
+
+result = sam_tp.run_sam2_inference(image)
+
+heatmap = result["heatmap"]        # RGB color-coded heatmap
+score_map = result["logits"]       # (H, W) float traversability map
 ```
 
+#### To test in CLI
 
 ```bash
 python visualize_heatmap.py \

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import argparse
 import os
-from sam2_inference_service import SAM2Service
+from sam2.sam_tp import SAM_TP
 
 # === Paths to your config and checkpoint ===
 model_cfg = "sam2/configs/sam2.1_inference_tiny/sam2.1_custom2.yaml"
@@ -16,13 +16,18 @@ parser.add_argument("--output_dir", type=str, required=True, help="Path to outpu
 args = parser.parse_args()
 
 # === Initialize service ===
-sam2 = SAM2Service(model_cfg, sam2_checkpoint)
+sam2 = SAM_TP(model_cfg, sam2_checkpoint)
 
 # === Load image ===
 image_np = np.array(Image.open(args.input_path).convert("RGB"))
 
 # === Run SAM2 inference ===
-heatmap, score_map = sam2.run_sam2_inference(image_np)
+result = sam2.run_sam2_inference(image_np)
+# heatmap is RGB color-coded from mask scores
+# logits is the raw score map (H, W) float array
+heatmap = result["heatmap"]
+score_map = result["logits"]
+
 
 # === Display heatmap ===
 plt.figure(figsize=(10, 10))

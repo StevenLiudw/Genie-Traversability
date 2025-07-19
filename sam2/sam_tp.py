@@ -5,10 +5,10 @@ import numpy as np
 from PIL import Image
 import matplotlib.cm as cm
 
-from sam2.build_sam import build_sam2
-from sam2.sam2_image_predictor import SAM2ImagePredictor
+from .build_sam import build_sam2
+from .sam2_image_predictor import SAM2ImagePredictor
 
-class SAM2Service:
+class SAM_TP:
     def __init__(self, sam2_cfg_path, sam2_checkpoint_path, score_thresh=0.0, multimask=False):
         """
         Loads SAM2 model into memory exactly once.
@@ -68,4 +68,7 @@ class SAM2Service:
         heatmap_array = (cm.get_cmap('jet')(normalized) * 255).astype(np.uint8)  # (H,W,4)
         heatmap_array = heatmap_array[..., :3]  # drop alpha => (H,W,3) in RGB
 
-        return heatmap_array, score_map
+        return {
+            "heatmap": heatmap_array,
+            "logits": score_map
+        }
