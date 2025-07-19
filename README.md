@@ -1,13 +1,17 @@
+# SAM for Traversability Prediction (SAM-TP)
 
-# SAM2 Heatmap Visualization
+This repository provides inference and visualization code for **SAM-TP**, a customized version of SAM2 tailored for pixel-wise traversability prediction. SAM-TP is the perception core of [GeNIE: A Generalizable Navigation System for In-the-Wild Environments](https://arxiv.org/abs/2506.17960), where it enables robust terrain understanding across diverse environments.
 
-This repository provides a script to run **SAM2 model inference** on an input image and visualize the resulting ground mask heatmap. The main entry point of the project is `visualize_heatmap.py`.
 
----
+### 📄 Paper
+
+**GeNIE: A Generalizable Navigation System for In-the-Wild Environments**
+
+[Jiaming Wang*](), [Diwen Liu*](), [Jizhuo Chen*](), [Jiaxuan Da](), [Nuowen Qian](), [Tram Minh Man](), [Harold Soh](https://haroldsoh.com/)
+
+**Paper link**: [https://arxiv.org/abs/2506.17960](https://arxiv.org/abs/2506.17960)
 
 ## 🔧 Setup
-
-
 
 ### 1. Create and activate the Conda environment
 
@@ -29,7 +33,6 @@ pip install --pre torch torchvision torchaudio --index-url https://download.pyto
 > 💡 Visit [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) to find the correct install command for your system.
 
 ---
-
 
 
 ## 📦 Model Configuration and Checkpoint
@@ -58,30 +61,6 @@ sam2_logs/configs/sam2.1_training_tiny/sam2_training_custom2_freezeNoneNone_f57.
 
 ---
 
-## 📂 Output
-
-After execution, the script saves:
-
-* `heatmap.jpg`: Visual heatmap image
-* `score_map.npy`: NumPy array of the raw score map
-
-These will be saved in the directory provided via `--output_dir`.
-
----
-
-## 🚀 Main Script: `visualize_heatmap.py`
-
-### Description
-
-This script:
-
-1. Loads an input image
-2. Initializes the SAM2 inference service
-3. Runs inference to generate a heatmap and score map
-4. Displays and optionally saves the results
-
----
-
 ### ✅ Usage
 
 ```bash
@@ -92,5 +71,52 @@ python visualize_heatmap.py \
 
 * `--input_path`: Path to the input image (JPG or PNG)
 * `--output_dir`: Directory where the output heatmap and score map will be saved
+
+---
+Great! You can include the two images side by side (or stacked, depending on your preference) in the `README.md` using standard Markdown image syntax. Assuming they’re located at `example/0001.jpeg` and `example/heatmap.jpg` in your repo, here’s how you can do it:
+
+---
+
+### 🧪 Example Inference Output
+
+We run **SAM-TP** on an input image to predict traversable areas. The result is visualized as a color-coded heatmap, where:
+
+> 🔴 **Red** regions are **easier to navigate**
+> 🔵 **Blue** regions are **harder to navigate**
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center"><strong>Input Image</strong></td>
+    <td align="center"><strong>Traversability Heatmap</strong></td>
+  </tr>
+  <tr>
+    <td><img src="example/0001.jpeg" width="300"></td>
+    <td><img src="example/heatmap.jpg" width="300"></td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+
+### 🔖 Citation
+
+If you use **SAM-TP** or the **GeNIE system** in your research, please cite our paper:
+
+**[GeNIE: A Generalizable Navigation System for In-the-Wild Environments](https://arxiv.org/abs/2506.17960)**
+Jiaming Wang\*, Diwen Liu\*, Jizhuo Chen\*, Jiaxuan Da, Nuowen Qian, Tram Minh Man, Harold Soh
+
+```bibtex
+@article{wang2024genie,
+  title={GeNIE: A Generalizable Navigation System for In-the-Wild Environments},
+  author={Wang, Jiaming and Liu, Diwen and Chen, Jizhuo and Da, Jiaxuan and Qian, Nuowen and Man, Tram Minh and Soh, Harold},
+  journal={arXiv preprint arXiv:2506.17960},
+  year={2024}
+}
+```
+
 
 ---
